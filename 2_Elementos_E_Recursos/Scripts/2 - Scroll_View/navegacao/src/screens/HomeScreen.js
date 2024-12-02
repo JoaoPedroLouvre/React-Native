@@ -6,16 +6,32 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
 export default function HomeScreen() {
     const navigation = useNavigation()
+
     const navigateToNavigationScreen = ()=> {
         navigation.navigate('Navigation')
+    }
+
+    const toScrollViewScreen = () => {
+        navigation.navigate('ScrollView')
     }
     
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Olá, mundo!</Text>
             <StatusBar style="auto" />
-            <TouchableOpacity active opacity={0.8} style={styles.button} onPress={navigateToNavigationScreen}>
+            <TouchableOpacity 
+                activeOpacity={0.8} 
+                style={styles.button} 
+                onPress={navigateToNavigationScreen}
+            >
                 <Text style={styles.buttonText}>Aula de Navegação</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.button}
+                onPress={toScrollViewScreen}
+            >
+                <Text style={styles.buttonText}>Aula de ScrollView</Text>
             </TouchableOpacity>
         </View>
     )
