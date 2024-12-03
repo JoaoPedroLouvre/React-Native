@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/native"
 import { View, Text, StyleSheet, ScrollView, Touchable, TouchableOpacity } from "react-native"
+import NavButton from "../components/NavButton"
 
 export default function ScrollViewScreen() {
 
@@ -11,12 +12,12 @@ export default function ScrollViewScreen() {
     return(
         <View style={styles.container}>
             <Text style={styles.title}>ScrollView</Text>
+            <NavButton text="Voltar" onPress={navigateBack} />
             <TouchableOpacity
                 activeOpacity={0.8}
                 style={styles.button}
                 onPress={navigateBack}
             >
-                <Text style={styles.buttonText}>Voltar</Text>
             </TouchableOpacity>
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                 <Text style={styles.item}>
@@ -110,12 +111,6 @@ const styles = StyleSheet.create({
     item: {
         fontSize: 16,
         marginTop: 16
-    },
-    button: {
-        backgroundColor: "#1c1a1d",
-        padding: 10,
-        borderRadius: 10,
-        marginTop: 20,
     },
     buttonText: {
         color: "232323"

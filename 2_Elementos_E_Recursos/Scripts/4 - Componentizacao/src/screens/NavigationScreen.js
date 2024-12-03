@@ -1,5 +1,6 @@
 import { View, TouchableOpacity, StyleSheet, Text } from "react-native"
 import { useNavigation } from "@react-navigation/native"
+import NavButton from "../components/NavButton"
 
 export default function NavigationScreen() {
     const navigation = useNavigation()
@@ -8,13 +9,13 @@ export default function NavigationScreen() {
     }
     return (
         <View style={styles.container}>
-            <Text>Aula de Navegação</Text>
+            <Text style={styles.title}>Aula de Navegação</Text>
+            <NavButton text="Voltar" onPress={navigateBack} />
             <TouchableOpacity
                 activeOpacity={0.8}
                 style={StyleSheet.button} 
                 onPress={navigateBack}
             >
-                <Text style={styles.buttonText}>Voltar</Text>
             </TouchableOpacity>
         </View>
     )
@@ -25,12 +26,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
-    },
-    button: {
-        backgroundColor: "#1c1a1d",
-        padding: 10,
-        borderRadius: 10,
-        marginTop: 20,
     },
     buttonText: {
         color: "fff"

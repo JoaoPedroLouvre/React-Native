@@ -3,11 +3,12 @@
 import { useNavigation } from "@react-navigation/native"
 import { StatusBar } from "expo-status-bar"
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import NavButton from "../components/NavButton"
 
 export default function HomeScreen() {
     const navigation = useNavigation()
 
-    const navigateToNavigationScreen = ()=> {
+    const toNavigationScreen = ()=> {
         navigation.navigate('Navigation')
     }
 
@@ -23,27 +24,9 @@ export default function HomeScreen() {
         <View style={styles.container}>
             <Text style={styles.title}>Olá, mundo!</Text>
             <StatusBar style="auto" />
-            <TouchableOpacity 
-                activeOpacity={0.8} 
-                style={styles.button} 
-                onPress={navigateToNavigationScreen}
-            >
-                <Text style={styles.buttonText}>Aula de Navegação</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                activeOpacity={0.8}
-                style={styles.button}
-                onPress={toScrollViewScreen}
-            >
-                <Text style={styles.buttonText}>Aula de ScrollView</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                activeOpacity={0.8}
-                style={styles.button}
-                onPress={toFlatListScreen}
-            >
-                <Text style={styles.buttonText}>Aula de FlatList</Text>
-            </TouchableOpacity>
+            <NavButton text="Aula de Navegação" onPress={toNavigationScreen} />
+            <NavButton text="Aula de ScroolView" onPress={toScrollViewScreen} />
+            <NavButton text="Aula de FlatList" onPress={toFlatListScreen} />
         </View>
     )
 }

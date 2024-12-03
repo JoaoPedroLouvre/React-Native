@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/native"
 import { StyleSheet, Text, TouchableOpacity, View, FlatList } from "react-native"
+import NavButton from "../components/NavButton"
 
 const movies = [
     { id: 1, year: "1994", title: "Um Sonho de Liberdade" },
@@ -33,12 +34,12 @@ export default function FlatListScreen() {
     return(
         <View style={styles.container}>
             <Text>FlatList</Text>
+            <NavButton text="Voltar" onPress={navigateBack} />
             <TouchableOpacity
                 activeOpacity={0.8}
                 style={styles.button}
                 onPress={navigateBack}
             >
-                <Text style={styles.buttonText}>Voltar</Text>
             </TouchableOpacity>
             <FlatList 
                 data={movies} 
@@ -59,12 +60,6 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 40,
         color: "#f64348"
-    },
-    button: {
-        backgroundColor: "#abdbe3",
-        padding: 10,
-        borderRadius: 10,
-        marginTop: 20
     },
     buttonText: {
         color: "#232323"
